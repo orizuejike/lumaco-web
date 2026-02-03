@@ -12,7 +12,6 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Contact Information
   const mainBoardPhone = "2349099983975";
   const uyoBranchPhone = "2349068903689";
   
@@ -29,7 +28,7 @@ export default function App() {
     { id: 'survey', title: 'Land Surveying', icon: <Map className="w-5 h-5" />, desc: 'Digital mapping and boundary verification.' },
     { id: 'buy-land', title: 'Buy Land', icon: <Landmark className="w-5 h-5" />, desc: 'Verified plots in developmental zones.' },
     { id: 'buy-property', title: 'Buy Property', icon: <Home className="w-5 h-5" />, desc: 'Residential and commercial acquisitions.' },
-    { id: 'current-project', title: 'Current Projects', icon: <FileText className="w-5 h-5" />, desc: 'Developments in Ikoyi and beyond.' },
+    { id: 'current-project', title: 'Current Projects', icon: <FileText className="w-5 h-5" />, desc: 'Developments in Lagos Island and beyond.' },
     { id: 'other-investments', title: 'Other Investments', icon: <Users className="w-5 h-5" />, desc: 'Joint venture partnerships.' },
     { id: 'rent-property', title: 'Rent Property', icon: <Key className="w-5 h-5" />, desc: 'Premium leasing and management.' },
     { id: 'overseas', title: 'Overseas Property', icon: <PlaneTakeoff className="w-5 h-5" />, desc: 'International portfolio management.' }
@@ -86,20 +85,20 @@ export default function App() {
         <div className="fixed inset-0 z-[100] bg-blue-950/95 backdrop-blur-xl p-6 animate-in fade-in duration-300">
           <div className="max-w-3xl mx-auto pt-20">
             <div className="flex justify-between items-center mb-10 text-white">
-              <h2 className="text-xl font-black uppercase tracking-widest">Search Portal</h2>
-              <button onClick={() => {setIsSearchOpen(false); setSearchQuery("");}} className="hover:rotate-90 transition-transform"><X size={32} /></button>
+              <h2 className="text-xl font-black uppercase tracking-widest text-white">Search Portal</h2>
+              <button onClick={() => {setIsSearchOpen(false); setSearchQuery("");}} className="hover:rotate-90 transition-transform text-white"><X size={32} /></button>
             </div>
             <input 
               autoFocus
               type="text" 
-              placeholder="Start typing keywords..." 
-              className="w-full bg-transparent border-b-2 border-white/20 p-4 text-2xl text-white outline-none focus:border-rose-600 transition-colors"
+              placeholder="Search services or locations..." 
+              className="w-full bg-transparent border-b-2 border-white/20 p-4 text-2xl text-white outline-none focus:border-rose-600 transition-colors placeholder:text-white/20"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <div className="mt-8 space-y-3">
+            <div className="mt-8 space-y-3 text-white">
               {filteredResults.map((res, idx) => (
-                <a key={idx} href={res.link} onClick={() => setIsSearchOpen(false)} className="block bg-white/5 p-4 rounded-xl hover:bg-white/10 text-white border border-white/5">
+                <a key={idx} href={res.link} onClick={() => setIsSearchOpen(false)} className="block bg-white/5 p-4 rounded-xl hover:bg-white/10 border border-white/5 transition-colors">
                   <span className="text-rose-500 text-[9px] font-bold uppercase block mb-1">{res.type}</span>
                   <span className="font-bold text-lg">{res.title}</span>
                 </a>
@@ -123,7 +122,6 @@ export default function App() {
           </div>
 
           <div className="flex gap-4 items-center">
-            {/* Search Button with Label */}
             <button 
               onClick={() => setIsSearchOpen(true)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all border ${isScrolled ? 'border-slate-200 text-slate-500 hover:bg-slate-50' : 'border-white/10 text-white/80 hover:bg-white/10'}`}
@@ -131,34 +129,32 @@ export default function App() {
               <Search size={12} />
               <span className="text-[9px] font-black uppercase tracking-widest">Search</span>
             </button>
-            
             <div className="hidden md:flex gap-6 items-center text-[9px] font-bold uppercase tracking-widest">
               {['Home', 'Real Estate', 'Sectors'].map(item => (
                 <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className={`${isScrolled ? 'text-slate-500' : 'text-white/80'} hover:text-rose-600 transition-colors`}>{item}</a>
               ))}
-              <a href={mainWhatsappUrl} target="_blank" className="bg-rose-600 text-white px-5 py-2 rounded-full font-black uppercase tracking-tighter shadow-lg">Contact</a>
+              <a href={mainWhatsappUrl} target="_blank" className="bg-rose-600 text-white px-5 py-2 rounded-full font-black uppercase tracking-tighter shadow-lg hover:bg-rose-700">Contact</a>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <header id="home" className="relative h-screen flex items-center bg-blue-950 overflow-hidden">
+      <header id="home" className="relative h-screen flex items-center bg-blue-950 overflow-hidden text-white">
         <div className="absolute inset-0 z-0 opacity-40">
           <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" className="w-full h-full object-cover" alt="HQ" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="inline-block px-3 py-1 border border-rose-500 rounded-full text-rose-500 font-bold text-[9px] tracking-[0.3em] uppercase mb-6 bg-rose-500/5 backdrop-blur-sm">
-             Integrity • Quality • Excellence
+             Corporate Excellence
           </div>
-          {/* FLUID TYPOGRAPHY: Scales with screen width to prevent text overflow on mobile */}
-          <h1 className="text-[11vw] sm:text-6xl md:text-8xl font-black text-white leading-[1.05] mb-8 tracking-tighter">
-            DIVERSIFYING <br /><span className="text-rose-600">PROGRESS.</span>
+          <h1 className="text-[11vw] sm:text-6xl md:text-8xl font-black leading-[1.05] mb-8 tracking-tighter">
+            DIVERSIFYING <br /><span className="text-rose-600 uppercase">PROGRESS.</span>
           </h1>
           <p className="text-lg md:text-2xl text-blue-100/70 max-w-xl mb-10 font-light leading-relaxed">
-            Leading excellence from <span className="text-white font-medium">Ikoyi</span> to <span className="text-white font-medium">Uyo</span>.
+            Headquartered in <span className="text-white font-medium">Lagos Island</span> with regional hubs in <span className="text-white font-medium">Uyo</span>.
           </p>
-          <button onClick={() => document.getElementById('real-estate').scrollIntoView({behavior: 'smooth'})} className="bg-white text-blue-950 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] flex items-center gap-2">
+          <button onClick={() => document.getElementById('real-estate').scrollIntoView({behavior: 'smooth'})} className="bg-white text-blue-950 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] flex items-center gap-2 hover:bg-rose-50 transition-colors">
             Properties <ArrowRight size={16} />
           </button>
         </div>
@@ -169,7 +165,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <span className="text-rose-600 text-[10px] font-black uppercase tracking-[0.3em] block mb-2">Property & Infrastructure</span>
-            <h2 className="text-3xl md:text-5xl font-black text-blue-950 tracking-tight">Premier Solutions</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-blue-950 tracking-tight leading-tight">Premier Real Estate Solutions</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {realEstateServices.map((service) => (
@@ -208,27 +204,27 @@ export default function App() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-16">
             <div className="space-y-12">
               <div>
-                <span className="text-rose-500 font-black text-[9px] uppercase tracking-widest block mb-4">Headquarters</span>
+                <span className="text-rose-500 font-black text-[9px] uppercase tracking-widest block mb-4 text-rose-500">Headquarters</span>
                 <div className="flex gap-4">
                   <MapPin className="text-white/40 flex-shrink-0" />
-                  <p className="text-blue-100/70 text-base">No 16 Ikoyi Road, Obalende S.W, Ikoyi, Lagos State.</p>
+                  <p className="text-blue-100/70 text-base">13 King George Street, Lagos Island, Lagos State, Nigeria.</p>
                 </div>
                 <a href={mainWhatsappUrl} target="_blank" className="mt-6 flex items-center gap-4 group">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all"><Phone size={18} /></div>
-                  <span className="text-xl font-black tracking-tighter">09099983975</span>
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all text-white"><Phone size={18} /></div>
+                  <span className="text-xl font-black tracking-tighter text-white">09099983975</span>
                 </a>
               </div>
               <div>
-                <span className="text-rose-500 font-black text-[9px] uppercase tracking-widest block mb-4">Akwa Ibom Branch</span>
+                <span className="text-rose-500 font-black text-[9px] uppercase tracking-widest block mb-4 text-rose-500">Akwa Ibom Branch</span>
                 <div className="flex gap-4">
                   <Building2 className="text-white/40 flex-shrink-0" />
                   <p className="text-blue-100/70 text-base italic leading-relaxed">Ring Road III, Ifa Ikot Okpon, Uyo, Akwa Ibom State.</p>
                 </div>
                 <a href={uyoWhatsappUrl} target="_blank" className="mt-6 flex items-center gap-4 group">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all"><Phone size={18} /></div>
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-rose-600 transition-all text-white"><Phone size={18} /></div>
                   <div className="flex flex-col">
-                    <span className="text-[8px] uppercase tracking-widest opacity-40 font-bold mb-1">Direct Line</span>
-                    <span className="text-xl font-black tracking-tighter">09068903689</span>
+                    <span className="text-[8px] uppercase tracking-widest opacity-40 font-bold mb-1 text-white">Direct Line</span>
+                    <span className="text-xl font-black tracking-tighter text-white">09068903689</span>
                   </div>
                 </a>
               </div>
@@ -242,7 +238,7 @@ export default function App() {
         <img src="/logo.png" className="h-7 w-auto mx-auto mb-6 grayscale opacity-20" alt="Footer Logo" />
         <p className="text-slate-300 text-[8px] uppercase tracking-[0.4em] leading-relaxed">
           © 2026 Lumaco Plus Group. <br />
-          <span className="text-slate-400 font-black tracking-[0.6em]">QUASARIZED</span>
+          <span className="text-slate-400 font-black tracking-[0.6em] uppercase text-center">QUASARIZED</span>
         </p>
       </footer>
 
@@ -253,7 +249,7 @@ export default function App() {
             <button onClick={() => setActiveSector(null)} className="absolute top-6 right-6 text-slate-400 hover:text-rose-600 transition-colors"><X size={24} /></button>
             <h2 className="text-2xl font-black text-blue-950 mb-4 leading-tight">{activeSector.title}</h2>
             <div className="h-1 w-10 bg-rose-600 mb-6 rounded-full" />
-            <p className="text-slate-600 text-sm leading-relaxed mb-8 font-medium">"{activeSector.details}"</p>
+            <p className="text-slate-600 text-sm leading-relaxed mb-8 font-medium italic text-center">"{activeSector.details}"</p>
             <a href={mainWhatsappUrl} target="_blank" className="w-full bg-blue-950 text-white py-4 rounded-xl font-black uppercase text-[10px] tracking-widest text-center block hover:bg-rose-600 transition-colors">Request Brief</a>
           </div>
         </div>
